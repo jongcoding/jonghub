@@ -1,5 +1,5 @@
 # 시간복잡도 n^3
 n=int(input())
-result = n**3
+result = ((n * (n + 1)) // 2) ** 2
 print(result)
-print(3)
+print(3) 
