@@ -1,0 +1,4 @@
+# 1부터 n까지 더하는 거이므로 시간복잡도 n
+n=int(input())
+print(n)
+print(1)
