@@ -1,35 +1,35 @@
+def is_vps(sentense):
+    stack=[]
+    for word in sentense:
+        if word =='(':
+            stack.append(word)
+        elif word==")":
+            if not stack:
+                return "no"
+            elif stack[-1]!='(':
+                return "no"
+            else:
+                stack.pop()
+        elif word=='[':
+            stack.append(word)
+        elif word==']':
+            if not stack:
+                return "no"
+            elif stack[-1]!='[':
+                return "no"
+            else:
+                stack.pop()
+    if stack:
+        return "no"
+    else:
+        return "yes"
 import sys
 while True:
-    stack1=[]
-    stack2=[]
-    sentence=sys.stdin.readline()
-    if sentence=='.':
+    sentence=sys.stdin.readline().rstrip()
+    if sentence==".":
         break
-    list_sen=list(sentence)
-    for word in list_sen:
-        if word=='(':
-            stack1.append(word)
-        
-        elif word=='[':
-            stack2.append(word)
-
-        elif word==']':
-            if stack2:
-                stack2.pop()
-            else:
-                sys.stdout.write("no")
-        elif word==')':
-            if stack1:
-                stack1.pop()
-            else:
-                sys.stdout.write("no")
-                break
-        if len(stack1)<1 and len(stack2)<1:
-            sys.stdout.write("yes")
-            break
-        else:
-            sys.stdout.write("no")
-            break
+    sys.stdout.write(is_vps(sentence)+'\n')
+    
 
 
 
