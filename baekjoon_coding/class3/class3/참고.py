@@ -1,19 +1,26 @@
-def find_closest_number(target):
-    closest_number = 0
+from itertools import product
 
-    # 각 자릿수별로 주어진 범위 내에서 가장 가까운 숫자 찾기
-    digits = [int(d) for d in str(target)]
-    for i, digit in enumerate(digits):
-        closest_number += min(digit, 6) * (10 ** (len(digits) - 1 - i))
+def find_closest_number(target, available_digits):
+    closest_number = None
+    min_difference = float('inf')
 
-    if digits[-1] < 6:  # 일의 자리 수가 6보다 작으면 0으로 변경
-        closest_number -= digits[-1]
-    else:  # 일의 자리 수가 6보다 크거나 같으면 10으로 변경
-        closest_number += 10 - digits[-1]
+    # 가능한 숫자 조합 생성
+    for digits in product(available_digits, repeat=len(str(target))):
+        number = int(''.join(map(str, digits)))
+
+        # 주어진 숫자와의 차이 계산
+        difference = abs(number - target)
+
+        # 가장 작은 차이를 가진 숫자 선택
+        if difference < min_difference:
+            min_difference = difference
+            closest_number = number
 
     return closest_number
 
-# 예시: 특정 숫자 659에 가장 가까운 숫자 찾기
-target = 659
-closest = find_closest_number(target)
-print("특정 숫자에 가장 가까운 숫자:", closest)
+# 가능한 숫자: 1, 3, 5
+available_digits = [1, 3, 5]
+target = 554
+
+closest = find_closest_number(target, available_digits)
+print("특정 숫자에 가장 가까운 숫자:", closest)  # 출력: 555
