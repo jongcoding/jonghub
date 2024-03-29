@@ -1,14 +1,14 @@
+import math
 n=int(input())
 a=input().split()
-for i in range(1, 1000001):
-    if n==1:
-        print(int(a[0])**2)
-        break
-    else:
-        j=0
-        for num in a:
-            if i%int(num)!=0: 
-                j+=1
-        if j==len(a) and i!=int(num):
-            print(i)
-            break
+b=list(int(x) for x in a)
+what_lcm=b[0]
+if len(a)==1:
+    print(b[0]**2)
+    exit()
+for i in range(len(b)-1):
+    what_lcm=math.lcm(what_lcm,b[i+1])
+if what_lcm in b:
+    what_lcm=what_lcm*min(b)
+print(what_lcm)
+    
