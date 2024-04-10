@@ -27,9 +27,7 @@ def backtracking(num_list, result, total, calculate, formula, expression):
         if calculate[i] > 0:
             calculate[i] -= 1
             new_formula = cal(num_list[total + 1], i, formula)
-            expression.append(new_formula)
             backtracking(num_list, result, total + 1, calculate, new_formula, expression)
-            expression.pop()  # 백트래킹을 위해 추가한 요소를 다시 제거
             calculate[i] += 1  # 다음 연산을 위해 사용된 연산자 개수를 복구
 
 input = sys.stdin.readline
