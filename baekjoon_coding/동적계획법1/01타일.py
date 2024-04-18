@@ -12,3 +12,7 @@ n = int(input())
 
 print(backtracking(n))
 
+1
+00 11
+001 100 111
+0000 0011 1100 1111 1001
