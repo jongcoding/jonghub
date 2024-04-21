@@ -4,6 +4,7 @@
 # 연속으로 놓여있는 3잔을 모두 마실 수 없음
 # 최대로 많은 포도주를 마실수 있는 알고리즘짜기
 import sys
+input=sys.stdin.readline
 def drink_wine_max(wine_list,n):
     dp=[0]*n
     dp[0]=wine_list[0]
