@@ -1,17 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-omega_1 = np.transpose(np.array([[148,72],[183,64],[137,40],[126,60]]))
-omega_2 = np.transpose(np.array([[85,66],[89,66],[101,76],[93,70]]))
+omega_1 = np.array([[148,72],[183,64],[137,40],[126,60]])
+omega_2 = np.array([[85,66],[89,66],[101,76],[93,70]])
 
 y_omega1 = np.array([0, 0, 0, 0])
 y_omega2 = np.array([1, 1, 1, 1])
 
-omega1_mean = omega_1.mean(axis=1)
-omega1_var = np.cov(omega_1, ddof=0)
+omega1_mean = omega_1.mean(axis=0)
+omega1_var = np.cov(omega_1.T, ddof=0)
 
-omega2_mean = omega_2.mean(axis=1)
-omega2_var = np.cov(omega_2, ddof=0)
+omega2_mean = omega_2.mean(axis=0)
+omega2_var = np.cov(omega_2.T, ddof=0)
 
 print('mu_1=', omega1_mean)
 print('mu_2=', omega2_mean)
