@@ -1,35 +1,35 @@
-#한 마디로 계속해서 잘람댐
-# n은 2,4,8,16,32,64,128 임
-# 파란색은 1 흰색은 0
-def confetti(n, paper, white_blue):
-    color = paper[0][0]
-    if n == 1:
-        white_blue[color] += 1
-        return
-    if check(n, paper, color):
-        white_blue[color] += 1
-        return
-    else:
-        new_paper = [[], [], [], []]
-        for i in range(n // 2):
-            new_paper[0].append(paper[i][:n // 2])
-            new_paper[1].append(paper[n // 2 + i][:n // 2])
-            new_paper[2].append(paper[i][n // 2:])
-            new_paper[3].append(paper[n // 2 + i][n // 2:])
-        for i in range(4):
-            confetti(n // 2, new_paper[i], white_blue)
-    return
-
-def check(n, paper, color):
+def check(n, screen, color):
     for y in range(n):
         for x in range(n):
-            if paper[y][x] != color:
+            if screen[y][x] != color:
                 return False
     return True
 
-n = int(input())
-white_blue = [0, 0]
-paper = [list(map(int, input().split())) for _ in range(n)]
-confetti(n, paper, white_blue)
-print(white_blue[0])
-print(white_blue[1])
+def Quad_Tree(n, screen):
+    color = screen[0][0]
+    if n == 1:
+        return str(color)
+    if check(n, screen, color):
+        return str(color)
+    
+    result = "("
+    new_screen = [[], [], [], []]
+    for i in range(n // 2):
+        new_screen[0].append(screen[i][:n // 2])
+        new_screen[1].append(screen[i][n // 2:])
+        new_screen[2].append(screen[n // 2 + i][:n // 2])
+        new_screen[3].append(screen[n // 2 + i][n // 2:])
+    
+    for i in range(4):
+        result += Quad_Tree(n // 2, new_screen[i])
+    result += ")"
+    
+    return result
+
+# 입력 받기
+n = int(input("한 줄에 들어갈 숫자의 개수를 입력하세요: "))
+screen = [[int(num) for num in input().strip()] for _ in range(n)]
+
+# Quad_Tree 함수 호출 및 결과 출력
+result = Quad_Tree(n, screen)
+print(result)
