@@ -1,0 +1,1 @@
+SELECT * FROM emp_new WHERE empno= 1000;

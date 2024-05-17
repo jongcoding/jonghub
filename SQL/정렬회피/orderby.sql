@@ -1,0 +1,1 @@
+SELECT * FROM  emp_new ORDER BY ENAME, SAL DESC;
