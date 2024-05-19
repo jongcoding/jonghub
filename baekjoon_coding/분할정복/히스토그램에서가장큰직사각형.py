@@ -6,7 +6,7 @@
 
 from collections import deque
 def largest_rectangle(n,h):
-    stack=deque([])
+    stack=deque()
     max_area=0
     index=0
     while index <n:

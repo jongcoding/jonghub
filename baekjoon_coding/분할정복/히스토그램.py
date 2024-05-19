@@ -1,7 +1,6 @@
-from collections import deque
 import sys
 def largest_rectangle(n,h):
-    stack=deque([])
+    stack=[]
     max_area=0
     index=0
     while index <n:
@@ -27,7 +26,7 @@ def largest_rectangle(n,h):
 input= sys.stdin.readline     
 def main():
     n = int(input().rstrip())
-    h = deque()
+    h = []
     for _ in range(n):
         h.append(int(input().strip()))
     print(largest_rectangle(n, h))
