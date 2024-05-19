@@ -27,7 +27,7 @@ def largest_rectangle(n,h):
 input= sys.stdin.readline     
 def main():
     n = int(input().rstrip())
-    h = []
+    h = deque()
     for _ in range(n):
         h.append(int(input().strip()))
     print(largest_rectangle(n, h))
