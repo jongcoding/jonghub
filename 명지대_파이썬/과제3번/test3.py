@@ -1,4 +1,4 @@
-# 초기 프린터 사전과 예산 설정
+
 printer_dict = {
     '잉크젯': [200, 100],
     '레이저젯': [200, 100],
@@ -49,7 +49,7 @@ def printer_del(name):
         print(f"삭제 후 남아 있는 프린터들: {list(printer_dict.keys())}")
     else:
         print(f"{name} 프린터가 존재하지 않습니다.")
-        
+
 print("프런티 관리자입니다")
 print("==================================================")
 while True:

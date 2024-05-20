@@ -8,7 +8,7 @@ def compute_score(**scores):
     max_student = max(scores, key=scores.get)
     min_student = min(scores, key=scores.get)
 
-    print("\n[성적 산출 결과]")
+    print("[성적 산출 결과]")
     for name, score in scores.items():
         print(f"- {name}: {score}점")
     print(f"총점: {total}점")
