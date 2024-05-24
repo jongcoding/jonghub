@@ -12,7 +12,6 @@ def f_pow(n):
         t2 = matrix_mult(t, t, p)
         if n % 2 == 1:
             t2 = matrix_mult(t2, [[1, 1], [1, 0]], p)
-        print(t2)
         return t2
 
 n = int(input())
