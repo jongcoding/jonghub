@@ -18,8 +18,8 @@ def compute_score(**scores):
 
 scores = {}
 while True:
-    choice = input("메뉴: 1=입력 2=성적산출 q=종료 >> ")
-    if choice == '1':
+    cmd = input("메뉴: 1=입력 2=성적산출 q=종료 >> ")
+    if cmd == '1':
         while True:
             entry = input("성적을 입력하세요 (이름=점수): ")
             if entry == '.':
@@ -30,9 +30,9 @@ while True:
                 scores[name.strip()] = int(score.strip())
             except ValueError:
                 print("잘못된 형식입니다. '이름=점수' 형식으로 입력하세요.")
-    elif choice == '2':
+    elif cmd == '2':
         compute_score(**scores)
-    elif choice.lower() == 'q':
+    elif cmd.lower() == 'q':
         print("프로그램을 종료합니다.")
         break
     else:
