@@ -1,5 +1,7 @@
 import myLotto as mlt
 lotto = mlt.buyautolotto() # 로또 번호표 구하기
+printlotto(lotto) # 5개의 로또 출력하기
+print()
 mlt.setwinlotto() # 당첨 번호 선정
 print("당첨번호:", end=" ")
 mlt.printnums(mlt.winnum) # 당첨 번호 출력
