@@ -20,10 +20,7 @@ def getwinner(lotto):
     for idx, numbers in enumerate(lotto):
         matched = len(numbers & winnum)
         print(f"{chr(ord('A') + idx)} : 당첨번호 {matched} 개: ", end="")
-        if matched==0:
-            print("꽝")
-        else:
-            printnums(numbers & winnum)
+        printnums(numbers & winnum)
 
 def printnums(nums):
     print(" ".join(map(str, sorted(nums))))
