@@ -10,6 +10,7 @@ def cal(matirx):
                 q=dp[i][k]+dp[k+1][j]+matirx[i-1]*matirx[k]*matrix[j]
                 if q <dp[i][j]:
                     dp[i][j]=q
+                print(dp,q)
     return dp[1][n-1]
 n=int(input())
 matrix=[]
