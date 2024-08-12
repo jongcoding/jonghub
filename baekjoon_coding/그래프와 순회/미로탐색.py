@@ -11,7 +11,7 @@ def bfs(mirro,n,m):
             return mirro[x][y]
         for dx,dy in directions:
             nx,ny=x+dx,y+dy
-            if 0<=nx <n and 0 <=ny<m and mirro[nx][ny]==1 and not visited[nx][ny]:
+            if 0<=nx <n and 0 <=ny<m and not visited[nx][ny]:
                 queue.append((nx,ny))
                 visited[nx][ny] = True
                 mirro[nx][ny]=mirro[x][y]+1
