@@ -17,22 +17,17 @@ class UnionFind:
         rootY = self.find(y)
         if rootX != rootY:
             self.parent[rootX] = rootY
-
-def solve():
-
+def main():
     N, M, K = map(int, input().split())
     minsu = list(map(int, input().split()))
     chulsu = list(map(int, input().split()))
-
     minsu.sort()
-    
     uf = UnionFind(M)
     for chulsu_card in chulsu:
         idx = bisect.bisect_right(minsu, chulsu_card)
-        print(idx,"hello")
         idx = uf.find(idx)
         print(minsu[idx])
         if idx + 1 < M:
             uf.union(idx, idx + 1)
-
-solve()
+if __name__=="__main__":
+    main()
